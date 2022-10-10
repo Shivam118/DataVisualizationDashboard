@@ -18,15 +18,10 @@ app.get("/", async (req, res) => {
   res.send("Hello World");
 });
 
-app.get("/API", async function (req, res) {
-  const DataF = await Intern.find();
-  res.json(DataF);
-});
-
 app.get("/data", (req, res, next) => {
   Intern.find()
     .then((result) => {
-      res.status(200).json({ Data: result });
+      res.status(200).json(result);
     })
     .catch((err) => {
       res.status(500).json({ error: err });
