@@ -1,0 +1,32 @@
+{
+  "name": "visualizationdashboard",
+  "version": "1.0.0",
+  "description": "A Dashboard to visualize Data",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shivam118/DataVisualizationDashboard.git"
+  },
+  "keywords": [
+    "visualize",
+    "data",
+    "dashboard",
+    "reactjs",
+    "mern",
+    "nodejs",
+    "expressjs",
+    "mongodb"
+  ],
+  "author": "Shivam Sharma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shivam118/DataVisualizationDashboard/issues"
+  },
+  "homepage": "https://github.com/Shivam118/DataVisualizationDashboard#readme",
+  "dependencies": {
+    "expressjs": "^1.0.1"
+  }
+}
