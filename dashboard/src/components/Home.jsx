@@ -4,42 +4,16 @@ import {
   Table,
   TableBody,
   TableCell,
-  TableContainer,
   TableHead,
   TableRow,
 } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import { useContext } from "react";
+import DataContext from "./dataContext";
 import PieChart from "./PieChart";
 
+
 const Home = () => {
-  const [values, setValues] = useState([]);
-  const handleGraphData = async () => {
-    try {
-      const res = await fetch("http://localhost:5000/data", {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        // credentials: "include",
-      });
-      const data = res.json();
-      data.then((response) => {
-        setValues(response);
-      });
-      if (!res.status === 200) {
-        const error = new Error(res.error);
-        throw error;
-      }
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  useEffect(() => {
-    handleGraphData();
-  }, []);
-
+  const values = useContext(DataContext);
   return (
     <Box
       sx={{ display: "flex", alignItems: "center", flexDirection: "column" }}
@@ -67,9 +41,9 @@ const Home = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {values.map((value) => {
+            {values.map((value, index) => {
               return (
-                <TableRow>
+                <TableRow key={index}>
                   <TableCell>{value.topic}</TableCell>
                   <TableCell>{value.start_year}</TableCell>
                   <TableCell>{value.end_year}</TableCell>
